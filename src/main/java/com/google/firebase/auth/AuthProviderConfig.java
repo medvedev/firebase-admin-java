@@ -41,8 +41,6 @@ public abstract class AuthProviderConfig {
   @Key("enabled")
   private boolean enabled;
 
-  // TODO(micahstairs): Add unit test for this.
-  // Example: projects/388188666963/oauthIdpConfigs/oidc.config-id
   public String getProviderId() {
     if (providerId == null) {
       providerId = resourceName.substring(resourceName.lastIndexOf("/") + 1);
@@ -81,7 +79,6 @@ public abstract class AuthProviderConfig {
       return getThis();
     }
 
-    // TODO(micahstairs): Add a unit test for this method.
     String getProviderId() {
       return providerId;
     }
