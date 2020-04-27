@@ -51,13 +51,13 @@ public final class OidcProviderConfig extends AuthProviderConfig {
    * <p>Set the initial attributes of the new provider by calling various setter methods available
    * in this class.
    */
-  public static final class CreateRequest extends AuthProviderConfig.CreateRequest {
+  public static final class CreateRequest extends AuthProviderConfig.CreateRequest<CreateRequest> {
 
     /**
      * Creates a new {@link CreateRequest}, which can be used to create a new OIDC Auth provider.
      *
      * <p>The returned object should be passed to
-     * {@link TenantAwareFirebaseAuth#createProviderConfig(CreateRequest)} to register the provider
+     * {@link AbstractFirebaseAuth#createProviderConfig(CreateRequest)} to register the provider
      * information persistently.
      */
     public CreateRequest() { }
@@ -81,6 +81,10 @@ public final class OidcProviderConfig extends AuthProviderConfig {
     public CreateRequest setIssuer(String issuer) {
       checkArgument(!Strings.isNullOrEmpty(issuer), "issuer must not be null or empty");
       properties.put("issuer", issuer);
+      return this;
+    }
+
+    CreateRequest getThis() {
       return this;
     }
   }
