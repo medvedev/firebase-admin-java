@@ -102,9 +102,9 @@ public abstract class AuthProviderConfig {
      *
      * @param enabled a boolean indicating whether the user can sign in with the provider
      */
-    public T setEnabled(boolean enabled) {
+    public CreateRequest setEnabled(boolean enabled) {
       properties.put("enabled", enabled);
-      return getThis();
+      return this;
     }
 
     Map<String, Object> getProperties() {
